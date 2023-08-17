@@ -25,8 +25,16 @@ pnpm create next-app --example with-jest with-jest-app
 ## Run Jest Tests
 
 ```bash
-npm test
+npm run test
 ```
+
+```bash
+npm run test:watch
+```
+
+# Overview
+
+https://zenn.dev/shuuuuuun/scraps/11262e3391599a
 
 # Sample Indexes
 
