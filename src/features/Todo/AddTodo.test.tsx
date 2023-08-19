@@ -3,19 +3,19 @@ import AddTodo from "./AddTodo";
 import userEvent from "@testing-library/user-event";
 
 describe("Test AddTodo Component", () => {
-  it("renders label element", () => {
+  it("check label", () => {
     render(<AddTodo todos={[]} updateTodos={jest.fn()} />);
     const labelElement = screen.getByLabelText("Add Task :");
     expect(labelElement).toBeInTheDocument();
   });
 
-  it("renders input element", () => {
+  it("check placeholder", () => {
     render(<AddTodo todos={[]} updateTodos={jest.fn()} />);
     const inputElement = screen.getByPlaceholderText(/Add New Task/i);
     expect(inputElement).toBeInTheDocument();
   });
 
-  it("renders input element", () => {
+  it("check typed value", () => {
     render(<AddTodo todos={[]} updateTodos={jest.fn()} />);
     const inputElement = screen.getByPlaceholderText(/Add New Task/i);
 
@@ -25,7 +25,7 @@ describe("Test AddTodo Component", () => {
     expect((inputElement as any).value).toBe("Learn Testing Library");
   });
 
-  it("renders input element", () => {
+  it("check input after clicked button with fireEvent", () => {
     render(<AddTodo todos={[]} updateTodos={jest.fn()} />);
     const inputElement = screen.getByPlaceholderText(/Add New Task/i);
 
@@ -39,7 +39,7 @@ describe("Test AddTodo Component", () => {
     expect((inputElement as any).value).toBe("");
   });
 
-  it("input text should remove where add button click", () => {
+  it("check input after clicked button with userEvent", () => {
     const user = userEvent.setup();
 
     render(<AddTodo todos={[]} updateTodos={jest.fn()} />);
