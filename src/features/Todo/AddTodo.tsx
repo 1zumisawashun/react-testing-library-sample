@@ -9,8 +9,8 @@ const AddTodo = ({
   todos,
   updateTodos,
 }: {
-  todos: Todo[];
-  updateTodos: (val: Todo[]) => void;
+  todos?: Todo[];
+  updateTodos?: (val: Todo[]) => void;
 }) => {
   const [task, setTask] = useState<string>("");
 
@@ -21,14 +21,20 @@ const AddTodo = ({
   const handleSubmit = (event: BaseSyntheticEvent) => {
     event.preventDefault();
     if (task === "") return;
+    if (!updateTodos || !todos) return;
     updateTodos([...todos, { task, isCompleted: false }]);
     setTask("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      Add Task :
-      <input value={task} placeholder="Add New Task" onChange={handleNewTask} />
+      <label htmlFor="task">Add Task :</label>
+      <input
+        id="task"
+        value={task}
+        placeholder="Add New Task"
+        onChange={handleNewTask}
+      />
       <button type="submit">追加</button>
     </form>
   );
