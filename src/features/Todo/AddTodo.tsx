@@ -9,8 +9,8 @@ const AddTodo = ({
   todos,
   updateTodos,
 }: {
-  todos?: Todo[];
-  updateTodos?: (val: Todo[]) => void;
+  todos: Todo[];
+  updateTodos: (val: Todo[]) => void;
 }) => {
   const [task, setTask] = useState<string>("");
 
